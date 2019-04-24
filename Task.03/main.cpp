@@ -63,16 +63,16 @@ int main() {
   Derived derived;
   Base* reallyDerived = reinterpret_cast<Base*>(&derived);
 
-  //VIRTUAL_CALL(reallyDerived, OnlyDerived);
+  //VIRTUAL_CALL(reallyDerived, OnlyDerived); - кидает исключение
   VIRTUAL_CALL(base, Both);
   VIRTUAL_CALL(reallyDerived, Both);
   VIRTUAL_CALL(&derived, Both);
   VIRTUAL_CALL(base, OnlyBase);
   VIRTUAL_CALL(reallyDerived, OnlyBase);
   VIRTUAL_CALL(&derived, OnlyBase);
-  VIRTUAL_CALL(base, Both); // печатает “Base::Both”
-  VIRTUAL_CALL(reallyDerived, Both); // печатает “Derived::Both"
-  VIRTUAL_CALL(reallyDerived, OnlyBase);  // печатает “Base::OnlyBase”
+  VIRTUAL_CALL(base, Both);
+  VIRTUAL_CALL(reallyDerived, Both);
+  VIRTUAL_CALL(reallyDerived, OnlyBase);
   delete base;
   return 0;
 }
