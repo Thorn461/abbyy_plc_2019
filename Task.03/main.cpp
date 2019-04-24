@@ -64,6 +64,7 @@ int main() {
   Base* reallyDerived = reinterpret_cast<Base*>(&derived);
 
   //VIRTUAL_CALL(reallyDerived, OnlyDerived); - кидает исключение
+  //VIRTUAL_CALL(base, OnlyDerived); - кидает исключение
   VIRTUAL_CALL(base, Both);
   VIRTUAL_CALL(reallyDerived, Both);
   VIRTUAL_CALL(&derived, Both);
